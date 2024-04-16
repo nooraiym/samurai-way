@@ -1,21 +1,24 @@
 import React from 'react';
-import logo from '../../assets/logo/logo.png'
 import { styled } from 'styled-components';
 
 
 export const Header = () => {
     return (
         <StyledHeader>
-            <img src={logo} alt="profile background image" />
+            <p>BSKY SOCIAL</p>
         </StyledHeader>
     );
 };
 
 export const StyledHeader = styled.header`
     grid-area: h;
-    background-color: #000000;
+    background-color: #e6e6e6;
+    padding: 12px 40px;
+    color: #1DA1F2;
+    font-weight: 700;
+    font-size: 20px;
 
     img {
-        width: 36px;
+        width: 30px;
 }
 `

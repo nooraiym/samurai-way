@@ -15,5 +15,5 @@ const StyledAside = styled.aside`
 
     grid-area: a;
 
-    background-color: #787878;
+    background-color: #afafaf;
 `
