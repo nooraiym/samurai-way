@@ -5,15 +5,19 @@ import { Aside } from './layout/aside/Aside';
 import { Header } from './layout/header/Header';
 import { Nav } from './layout/nav/Nav';
 import { Profile } from './layout/profile/Profile';
+import { Messages } from './layout/dialogs/Messages';
 
-
+// TODO:
+// переписать на новый роутинг с 3 спринта
+// добавить вкладку с добавлением нового поста на странице профиля
 
 function App() {
   return (
     <AppWrapper>
       <Header />
       <Nav />
-      <Profile />
+      {/* <Profile /> */}
+      <Messages />
       <Aside />
     </AppWrapper>
   );

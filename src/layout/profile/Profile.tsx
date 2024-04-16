@@ -16,9 +16,9 @@ export const Profile = () => {
                 <BackImage imgSrc={back} />
                 <ProfileImage imgSrc={profile} />
                 <div>
-                    <h2>Emily</h2>
-                    <p>@emily.bsky.team</p>
-                    <p><b>5010</b> followers</p>
+                    <h2>Kim Chi</h2>
+                    <p>@kimchi.bsky.team</p>
+                    <p><b>5010</b> followers <b>471</b> following <b>82</b> posts</p>
                     <p>🌀 Developer relations + community @bluesky.</p>
                     <p>🤖 @skies.bsky.social</p>
                 </div>
