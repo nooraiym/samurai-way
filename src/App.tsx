@@ -14,16 +14,25 @@ import icon4 from './assets/icons/menu-news.png'
 import icon5 from './assets/icons/menu-music.png'
 import icon6 from './assets/icons/menu-settings.png'
 
+import back from './assets/img/profile/back_img.png'
+import profile from './assets/img/profile/profile_img.png'
+
+import postPhoto from './assets/img/profile/profile-post-photo.png'
+import details from './assets/img/posts/post-details.png'
+import comment from './assets/img/posts/post-comments.png'
+import repost from './assets/img/posts/post-repost.png'
+import like from './assets/img/posts/post-like.png'
+import share from './assets/img/posts/post-share.png'
+
 import { v1 } from 'uuid';
 
 // TODO:
 // переписать на новый роутинг с 3 спринта
-// вынести все данные отдельно и отрисовать по map
 // посмотреть снова структуру проекта
-// перенеcти все данные наверх в index.tsx
 
-// DATA and TYPES:
-// for nav:
+
+//DATA and TYPES:
+//for nav:
 export type menuItemType = {
   id: string;
   source: string;
@@ -69,7 +78,87 @@ let menuData: menuDataType = [
       title: "Settings"
   }
 ]
-// for messages:
+//for profile:
+export type profileDataType = {
+  id: string
+  name: string
+  surname: string
+  nickname: string
+  info: string
+  followers: number
+  following: number
+  posts: number
+  backImgSrc: string
+  profileImgSrc: string
+}
+let profileData:profileDataType = {
+  id: v1(),
+  name: 'Kim',
+  surname: 'Chi',
+  nickname: '@kimchi.bsky.team',
+  info: '🌀 Developer relations + community @bluesky. 🤖 @skies.bsky.social',
+  followers: 5010,
+  following: 471,
+  posts: 823,
+  backImgSrc: back,
+  profileImgSrc: profile
+}
+//for posts:
+type postType = {
+  id: string
+  postText: string
+}
+type postIconType = {
+  id: string
+  iconSrc: string
+  alt: string
+  count?: number
+}
+export type postDataType = {
+  postPhotoSrc: string
+  detailsIconSrc: string
+  post: postType[]
+  postIcons: postIconType[]
+}
+let postData:postDataType = {
+  postPhotoSrc: postPhoto,
+  detailsIconSrc: details,
+  post: [
+      {
+          id: v1(),
+          postText: 'Something new'
+      },
+      {
+          id: v1(),
+          postText: 'Welcome to Bsky Social! 🦋'
+      },
+  ],
+  postIcons: [
+      {
+          id: v1(),
+          iconSrc: comment,
+          alt: 'comment icon',
+          count: 3
+      },
+      {
+          id: v1(),
+          iconSrc: repost,
+          alt: 'repost icon',
+      },
+      {
+          id: v1(),
+          iconSrc: like,
+          alt: 'like icon',
+          count: 16
+      },
+      {
+          id: v1(),
+          iconSrc: share,
+          alt: 'share icon'
+      },
+  ]
+}
+//for messages:
 type friendType ={
   id: string
   name: string
@@ -103,8 +192,7 @@ let friendsData:friendsDataType = [
       surname: 'Collet'
   },
 ]
-
-// for button:
+//for button:
 type buttonItem = {
   id: string
   name: string
@@ -136,7 +224,7 @@ function App() {
     <AppWrapper>
       <Header />
       <Nav menuData={menuData} buttonData={buttonData} />
-      <Profile />
+      <Profile profileData={profileData} postData={postData} buttonData={buttonData} />
       {/* <Messages friendsData={friendsData} buttonData={buttonData}/> */}
       <Aside />
     </AppWrapper>

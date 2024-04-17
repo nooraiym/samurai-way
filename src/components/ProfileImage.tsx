@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { styled } from 'styled-components';
 type ProfileImagePropsType = {
-    imgSrc: string
+    imgsrc: string
 };
 
-export const ProfileImage = ({imgSrc}: ProfileImagePropsType) => {
+export const ProfileImage = ({imgsrc}: ProfileImagePropsType) => {
     return (
-        <StyledProfileImage imgSrc={imgSrc} />
+        <StyledProfileImage imgsrc={imgsrc} />
     );
 };
 
@@ -14,7 +14,7 @@ const StyledProfileImage = styled.div<ProfileImagePropsType>`
     width: 160px;
     height: 160px;
 
-    background-image: url(${props => props.imgSrc});
+    background-image: url(${props => props.imgsrc});
     background-position: 0;
     background-repeat: no-repeat;
 

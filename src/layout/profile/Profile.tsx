@@ -3,36 +3,33 @@ import { styled } from 'styled-components';
 import { Posts } from '../posts/Posts';
 import { BackImage } from '../../components/BackImage';
 import { ProfileImage } from '../../components/ProfileImage';
-
-
-import back from '../../assets/img/profile/back_img.png'
-import profile from '../../assets/img/profile/profile_img.png'
 import { MessageSender } from '../../components/MessageSender';
+import { buttonDataType, postDataType, profileDataType } from '../../App';
 
 //TYPES:
 type ProfilePropsType = {
-
+    profileData: profileDataType
+    postData: postDataType
+    buttonData: buttonDataType
 }
 
 // UI:
-export const Profile = ( {}: ProfilePropsType) => {
+export const Profile = ( {profileData, postData, buttonData}: ProfilePropsType) => {
     return (
         <StyledProfile>
             <ProfileInfo>
-                <BackImage imgSrc={back} />
-                <ProfileImage imgSrc={profile} />
+                <BackImage imgsrc={profileData.backImgSrc} />
+                <ProfileImage imgsrc={profileData.profileImgSrc} />
                 <div>
-                    <h2>Kim Chi</h2>
-                    <p>@kimchi.bsky.team</p>
-                    <p><b>5010</b> followers <b>471</b> following <b>82</b> posts</p>
-                    <p>🌀 Developer relations + community @bluesky.</p>
-                    <p>🤖 @skies.bsky.social</p>
+                    <h2>{profileData.name} {profileData.surname}</h2>
+                    <p>{profileData.nickname}</p>
+                    <p><b>{profileData.followers}</b> followers <b>{profileData.following}</b> following <b>{profileData.posts}</b> posts</p>
+                    <p>{profileData.info}</p>
                 </div>
             </ProfileInfo>
             <ProfilePosts>
-                <MessageSender buttonData={[]} />
-                <Posts message={`Something new`} />
-                <Posts message={`Welcome to Bluesky! 🦋`} />
+                <MessageSender buttonData={buttonData} />
+                <Posts postData={postData}/>
             </ProfilePosts>
         </StyledProfile>
     );
@@ -47,7 +44,6 @@ const StyledProfile = styled.main`
     background-color: #d8d8d8;
     position: relative;
 `
-
 const ProfileInfo = styled.section`
     div {
         display: flex;

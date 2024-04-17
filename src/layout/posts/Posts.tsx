@@ -1,47 +1,31 @@
 import React from 'react';
-import postPhoto from '../../assets/img/profile/profile-post-photo.png'
-import details from '../../assets/img/posts/post-details.png'
-import comment from '../../assets/img/posts/post-comments.png'
-import repost from '../../assets/img/posts/post-repost.png'
-import like from '../../assets/img/posts/post-like.png'
-import share from '../../assets/img/posts/post-share.png'
 import { styled } from 'styled-components';
+import { postDataType } from '../../App';
+import { PostTabs } from '../../components/PostTabs';
 
+//TYPES:
 type PostPropsType = {
-    message: string
+    postData: postDataType
 }
 
-export const Posts = (props: PostPropsType) => {
+//UI:
+export const Posts = ({postData}: PostPropsType) => {
     return (
         <StyledPost>
-            <PostImg src={postPhoto} alt="" />
+            <PostImg src={postData.postPhotoSrc} alt="" />
             <StyledPostText>
                 <PostHeader>
                     <p><b>Emily</b> @emily.bsky.team · 24h</p>
-                    <img src={details} alt="" />
+                    <img src={postData.detailsIconSrc} alt="" />
                 </PostHeader>
-                <p>{props.message}</p>
-                <PostTabs>
-                    <PostTab>
-                        <img src={comment} alt="comment" />
-                        <span>3</span>
-                    </PostTab>
-                    <PostTab>
-                        <img src={repost} alt="comment" />
-                    </PostTab>
-                    <PostTab>
-                        <img src={like} alt="comment" />
-                        <span>16</span>
-                    </PostTab>
-                    <PostTab>
-                        <img src={share} alt="comment" />
-                    </PostTab>
-                </PostTabs>
+                <p>{postData.post[1].postText}</p>
+                <PostTabs postData={postData} />
             </StyledPostText>
         </StyledPost>
     );
 };
 
+//STYLES:
 const StyledPost = styled.div`
     display: flex;
     align-items: flex-start;
@@ -66,24 +50,5 @@ const PostHeader = styled.div`
 
     p {
         min-width: 500px;
-    }
-`
-
-const PostTabs = styled.div`
-    max-width: 425px;
-    min-height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-`
-
-const PostTab = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    img {
-        width: 18px;
-        height: 18px;
     }
 `
