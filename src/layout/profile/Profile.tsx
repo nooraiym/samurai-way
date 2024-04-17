@@ -4,7 +4,7 @@ import { Posts } from '../posts/Posts';
 import { BackImage } from '../../components/BackImage';
 import { ProfileImage } from '../../components/ProfileImage';
 import { MessageSender } from '../../components/MessageSender';
-import { buttonDataType, postDataType, profileDataType } from '../../App';
+import { buttonDataType, postDataType, profileDataType } from '../..';
 
 //TYPES:
 type ProfilePropsType = {

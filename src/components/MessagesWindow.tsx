@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { Message } from './Message';
 import { FriendMessage } from './FriendMessage';
 import { MessageSender } from './MessageSender';
-import { buttonDataType } from '../App';
+import { buttonDataType } from '..';
 
 //TODO:
 // переписать Message и FriendMessage с пропсами и отмапить

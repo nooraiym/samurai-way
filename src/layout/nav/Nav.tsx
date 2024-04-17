@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { styled } from 'styled-components';
 import { Button } from '../../components/Button';
-import { buttonDataType, menuDataType, menuItemType } from '../../App';
+import { buttonDataType, menuDataType, menuItemType } from '../..';
 
 
 // TYPES:

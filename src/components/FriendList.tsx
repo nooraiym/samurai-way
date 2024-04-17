@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { friendsDataType } from '../App';
+import { friendsDataType } from '..';
 
 // TYPES:
 type FriendListPropsType = {

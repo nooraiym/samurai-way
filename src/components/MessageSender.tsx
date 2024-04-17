@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Button } from './Button';
-import { buttonDataType } from '../App';
+import { buttonDataType } from '..';
 
 type MessageSenderPropsType = {
     buttonData: buttonDataType

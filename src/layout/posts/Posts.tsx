@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { postDataType } from '../../App';
+import { postDataType } from '../..';
 import { PostTabs } from '../../components/PostTabs';
 
 //TYPES:

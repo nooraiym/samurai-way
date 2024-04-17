@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 import { MessagesWindow } from '../../components/MessagesWindow';
 import { FriendList } from '../../components/FriendList';
-import { buttonDataType, friendsDataType } from '../../App';
+import { buttonDataType, friendsDataType } from '../..';
 
 // TYPES:
 type MessagesPropsType = {
