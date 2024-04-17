@@ -1,15 +1,21 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { Post } from '../posts/Post';
+import { Posts } from '../posts/Posts';
 import { BackImage } from '../../components/BackImage';
 import { ProfileImage } from '../../components/ProfileImage';
 
 
 import back from '../../assets/img/profile/back_img.png'
 import profile from '../../assets/img/profile/profile_img.png'
+import { MessageSender } from '../../components/MessageSender';
 
+//TYPES:
+type ProfilePropsType = {
 
-export const Profile = () => {
+}
+
+// UI:
+export const Profile = ( {}: ProfilePropsType) => {
     return (
         <StyledProfile>
             <ProfileInfo>
@@ -24,13 +30,16 @@ export const Profile = () => {
                 </div>
             </ProfileInfo>
             <ProfilePosts>
-                <Post message={`Something new`} />
-                <Post message={`Welcome to Bluesky! 🦋`} />
+                <MessageSender buttonData={[]} />
+                <Posts message={`Something new`} />
+                <Posts message={`Welcome to Bluesky! 🦋`} />
             </ProfilePosts>
         </StyledProfile>
     );
 };
 
+
+// STYLES:
 const StyledProfile = styled.main`
     max-width: 800px;
 
@@ -49,4 +58,7 @@ const ProfileInfo = styled.section`
 `
 const ProfilePosts = styled.section`
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `

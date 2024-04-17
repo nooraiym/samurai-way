@@ -17,8 +17,4 @@ export const StyledHeader = styled.header`
     color: #1DA1F2;
     font-weight: 700;
     font-size: 20px;
-
-    img {
-        width: 30px;
-}
 `

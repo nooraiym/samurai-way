@@ -11,38 +11,34 @@ type PostPropsType = {
     message: string
 }
 
-export const Post = (props: PostPropsType) => {
+export const Posts = (props: PostPropsType) => {
     return (
         <StyledPost>
-        <PostImg src={postPhoto} alt="" />
-        <StyledPostText>
-            <PostHeader>
-                <p><b>Emily</b> @emily.bsky.team · 24h</p>
-                <img src={details} alt="" />
-            </PostHeader>
-            <p>{props.message}</p>
-            <PostTabs>
-                <PostTab>
-                    <img src={comment} alt="comment" />
-                    <span>3</span>
-                </PostTab>
-                <PostTab>
-                    <img src={repost} alt="comment" />
-                    <span></span>
-                </PostTab>
-                <PostTab>
-                    <img src={like} alt="comment" />
-                    <span>16</span>
-                </PostTab>
-                <PostTab>
-                    <img src={share} alt="comment" />
-                    <span></span>
-                </PostTab>
-            </PostTabs>
-        </StyledPostText>
-
+            <PostImg src={postPhoto} alt="" />
+            <StyledPostText>
+                <PostHeader>
+                    <p><b>Emily</b> @emily.bsky.team · 24h</p>
+                    <img src={details} alt="" />
+                </PostHeader>
+                <p>{props.message}</p>
+                <PostTabs>
+                    <PostTab>
+                        <img src={comment} alt="comment" />
+                        <span>3</span>
+                    </PostTab>
+                    <PostTab>
+                        <img src={repost} alt="comment" />
+                    </PostTab>
+                    <PostTab>
+                        <img src={like} alt="comment" />
+                        <span>16</span>
+                    </PostTab>
+                    <PostTab>
+                        <img src={share} alt="comment" />
+                    </PostTab>
+                </PostTabs>
+            </StyledPostText>
         </StyledPost>
-        
     );
 };
 
@@ -51,7 +47,6 @@ const StyledPost = styled.div`
     align-items: flex-start;
     gap: 12px;
     padding: 4px 16px 12px;
-    margin-bottom: 20px;
     border: 1px solid #c2c2c2;
 `
 const PostImg = styled.img`

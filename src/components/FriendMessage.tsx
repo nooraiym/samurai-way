@@ -2,9 +2,15 @@ import React from 'react';
 import { styled } from 'styled-components';
 import profilePhoto from '../assets/img/profile/friend-profile-photo.png'
 
-export const FriendMessage = () => {
+//TYPES:
+type FriendMessagePropsType = {
+
+}
+
+//UI:
+export const FriendMessage = ({}:FriendMessagePropsType) => {
     return (
-        <FriendMessageWrapper>
+        <>
             <FriendMessageContent>
                 <img src={profilePhoto} alt="" />
                 <FriendMessageText>
@@ -13,12 +19,11 @@ export const FriendMessage = () => {
                 </FriendMessageText>
             </FriendMessageContent>
             <FriendMessageTime>22:24</FriendMessageTime>
-        </FriendMessageWrapper>
+        </>
     );
 };
 
-const FriendMessageWrapper = styled.div``
-
+//STYLES:
 const FriendMessageContent = styled.div`
     display: flex;
     align-items: flex-end;

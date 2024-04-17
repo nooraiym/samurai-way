@@ -1,30 +1,31 @@
 import React from 'react';
-import icon1 from '../../assets/icons/menu-profile.png'
-import icon2 from '../../assets/icons/menu-explore.png'
-import icon3 from '../../assets/icons/menu-messages.png'
-import icon4 from '../../assets/icons/menu-news.png'
-import icon5 from '../../assets/icons/menu-music.png'
-import icon6 from '../../assets/icons/menu-settings.png'
 
 import { styled } from 'styled-components';
 import { Button } from '../../components/Button';
+import { buttonDataType, menuDataType, menuItemType } from '../../App';
 
-export const Nav = () => {
+
+// TYPES:
+type NavPropsType = {
+    menuData: menuDataType
+    buttonData: buttonDataType
+}
+
+//UI:
+export const Nav = ({menuData, buttonData} : NavPropsType) => {
     return (
         <StyledNav>
             <ul>
-                <li><img src={icon1} alt="icon" />Profile</li>
-                <li><img src={icon2} alt="icon" />Explore</li>
-                <li><img src={icon3} alt="icon" />Messages</li>
-                <li><img src={icon4} alt="icon" />News</li>
-                <li><img src={icon5} alt="icon" />Music</li>
-                <li><img src={icon6} alt="icon" />Settings</li>
+                {menuData.map((i:menuItemType) => (
+                    <li key={i.id}><img src={i.source} alt={i.alt} />{i.title}</li>
+                ))}
             </ul>
-            <Button name={'Post'}></Button>
+            <Button name={buttonData[0].name}/>
         </StyledNav>
     );
 };
 
+//STYLES:
 const StyledNav = styled.nav`
     grid-area: n;
     background-color: #969696;

@@ -1,14 +1,20 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { Button } from './Button';
+import { buttonDataType } from '../App';
 
-export const MessageSender = () => {
+type MessageSenderPropsType = {
+    buttonData: buttonDataType
+}
+
+export const MessageSender = ( {buttonData}: MessageSenderPropsType ) => {
     return (
         <MessageSenderWrapper>
             <textarea
-                    title='Shift+Enter for send'
-                    placeholder='Type your message'
+                    title={buttonData[2].title}
+                    placeholder={buttonData[2].placeholder}
                 />
-            <button>Send</button>
+            <Button name={buttonData[2].name} />
         </MessageSenderWrapper>
     );
 };
@@ -36,26 +42,5 @@ const MessageSenderWrapper = styled.div`
 
         font-size: 14px;
         color: #00000099;
-    }
-
-    button {
-        padding: 10px 20px;
-
-        border: none;
-        border-radius: 20px;
-        background-color: #1DA1F2;
-        color: white;
-
-        font-weight: 700;
-        font-size: 16px;
-
-        &:hover {
-            background-color: #fff;
-            color: #1DA1F2;
-            outline: 2px solid #1DA1F2;
-        }
-        &:active {
-            outline: 2px solid #000000;
-        }
     }
 `

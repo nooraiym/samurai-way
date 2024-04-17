@@ -12,8 +12,6 @@ export const Aside = () => {
 
 const StyledAside = styled.aside`
     max-width: 350px;
-
     grid-area: a;
-
     background-color: #afafaf;
 `
