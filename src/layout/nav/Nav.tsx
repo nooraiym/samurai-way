@@ -1,13 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Button } from '../../components/Button';
-import { buttonDataType, menuDataType, menuItemType } from '../..';
+import { buttonItem, menuItemType } from '../../state/state';
 
 
 // TYPES:
 type NavPropsType = {
-    menuData: menuDataType
-    buttonData: buttonDataType
+    menuData: menuItemType[]
+    buttonData: buttonItem[]
 }
 
 //UI:
@@ -19,7 +19,7 @@ export const Nav = ({menuData, buttonData} : NavPropsType) => {
                     <li key={i.id}><img src={i.source} alt={i.alt} />{i.title}</li>
                 ))}
             </ul>
-            <Button name={buttonData[0].name}/>
+            <Button name={buttonData[0].name} onClick={ () => {}}/>
         </StyledNav>
     );
 };

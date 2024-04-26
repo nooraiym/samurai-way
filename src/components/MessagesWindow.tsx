@@ -3,14 +3,14 @@ import { styled } from 'styled-components';
 import { Message } from './Message';
 import { FriendMessage } from './FriendMessage';
 import { MessageSender } from './MessageSender';
-import { buttonDataType } from '..';
+import { buttonItem } from '../state/state';
 
 //TODO:
 // переписать Message и FriendMessage с пропсами и отмапить
 
 //TYPES:
 type MessagesWindowPropsType ={
-    buttonData: buttonDataType
+    buttonData: buttonItem[]
 }
 
 // UI:

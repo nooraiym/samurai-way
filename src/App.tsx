@@ -6,33 +6,26 @@ import { Header } from './layout/header/Header';
 import { Nav } from './layout/nav/Nav';
 import { Profile } from './layout/profile/Profile';
 import { Messages } from './layout/messages/Messages';
-import { buttonDataType, friendsDataType, menuDataType, postDataType, profileDataType } from '.';
+import { RootStateType } from './state/state';
 
 // TODO:
 // переписать на новый роутинг с 3 спринта
-// посмотреть снова структуру проекта
+// внедрить реф в текстареа в Профиле let newPostElement = React.createRef(); и закинуть в функцию коллбек для кнопки с доступом к value: let text = newPostElement.current.value; и вывести в консоль
 
 //TYPES:
 type AppPropsType = {
-  menuData: menuDataType
-  profileData: profileDataType
-  postData: postDataType
-  friendsData: friendsDataType
-  buttonData: buttonDataType
+  state: RootStateType
+  addPost: ( postText: string ) => void
 }
 
 // UI:
-function App( { menuData,
-                profileData,
-                postData,
-                friendsData,
-                buttonData }:AppPropsType ) {
+function App( { state, addPost }: AppPropsType ) {
   return (
     <AppWrapper>
       <Header />
-      <Nav menuData={menuData} buttonData={buttonData} />
-      <Profile profileData={profileData} postData={postData} buttonData={buttonData} />
-      {/* <Messages friendsData={friendsData} buttonData={buttonData}/> */}
+      <Nav menuData={state.sideMenu} buttonData={state.components.buttonData} />
+      <Profile profileData={state.profilePage.profileData} postData={state.profilePage.postData} buttonData={state.components.buttonData} addPost={addPost} />
+      {/* <Messages friendsData={state.messagesPage.friendsList} buttonData={state.components.buttonData}/> */}
       <Aside />
     </AppWrapper>
   );

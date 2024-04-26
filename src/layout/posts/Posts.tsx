@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { postDataType } from '../..';
 import { PostTabs } from '../../components/PostTabs';
+import { postDataType } from '../../state/state';
 
 //TYPES:
 type PostPropsType = {
@@ -18,7 +18,7 @@ export const Posts = ({postData}: PostPropsType) => {
                     <p><b>Emily</b> @emily.bsky.team · 24h</p>
                     <img src={postData.detailsIconSrc} alt="" />
                 </PostHeader>
-                <p>{postData.post[1].postText}</p>
+                <p>{postData.postText[0]}</p>
                 <PostTabs postData={postData} />
             </StyledPostText>
         </StyledPost>

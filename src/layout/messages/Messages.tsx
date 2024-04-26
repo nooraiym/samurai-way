@@ -2,12 +2,12 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 import { MessagesWindow } from '../../components/MessagesWindow';
 import { FriendList } from '../../components/FriendList';
-import { buttonDataType, friendsDataType } from '../..';
+import { buttonItem, friendType } from '../../state/state';
 
 // TYPES:
 type MessagesPropsType = {
-    friendsData: friendsDataType
-    buttonData: buttonDataType
+    friendsData: friendType[]
+    buttonData: buttonItem[]
 }
 
 export const Messages = ( {friendsData, buttonData} : MessagesPropsType) => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { friendsDataType } from '..';
+import { friendType } from '../state/state';
 
 // TYPES:
 type FriendListPropsType = {
-    friendsData: friendsDataType
+    friendsData: friendType[]
 }
 
 // UI:

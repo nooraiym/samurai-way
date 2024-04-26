@@ -3,18 +3,20 @@ import { styled } from 'styled-components';
 import { Posts } from '../posts/Posts';
 import { BackImage } from '../../components/BackImage';
 import { ProfileImage } from '../../components/ProfileImage';
-import { MessageSender } from '../../components/MessageSender';
-import { buttonDataType, postDataType, profileDataType } from '../..';
+import { buttonItem, postDataType, profileDataType } from '../../state/state';
+import { Textarea } from '../../components/Textarea';
 
 //TYPES:
 type ProfilePropsType = {
     profileData: profileDataType
     postData: postDataType
-    buttonData: buttonDataType
+    buttonData: buttonItem[]
+    addPost:( postText: string ) => void
 }
 
 // UI:
-export const Profile = ( {profileData, postData, buttonData}: ProfilePropsType) => {
+export const Profile = ( {profileData, postData, buttonData, addPost}: ProfilePropsType) => {
+
     return (
         <StyledProfile>
             <ProfileInfo>
@@ -28,7 +30,7 @@ export const Profile = ( {profileData, postData, buttonData}: ProfilePropsType) 
                 </div>
             </ProfileInfo>
             <ProfilePosts>
-                <MessageSender buttonData={buttonData} />
+                <Textarea buttonData={buttonData} addPost={addPost} />
                 <Posts postData={postData}/>
             </ProfilePosts>
         </StyledProfile>

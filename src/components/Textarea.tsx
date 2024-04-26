@@ -3,23 +3,35 @@ import { styled } from 'styled-components';
 import { Button } from './Button';
 import { buttonItem } from '../state/state';
 
-type MessageSenderPropsType = {
+type TextareaPropsType = {
     buttonData: buttonItem[]
+    addPost: (postText: string) => void
 }
 
-export const MessageSender = ( {buttonData}: MessageSenderPropsType ) => {
+export const Textarea = ( {buttonData, addPost}: TextareaPropsType ) => {
+    const newPostElement = createRef<HTMLTextAreaElement>()
+    const addPostHandler = () => {
+        debugger
+        if (newPostElement.current) {
+            let postText = newPostElement.current.value;
+            addPost(postText);
+            newPostElement.current.value = ''
+        }
+    }
+    
     return (
-        <MessageSenderWrapper>
+        <TextareaWrapper>
             <textarea
                     title={buttonData[2].title}
                     placeholder={buttonData[2].placeholder}
                 />
-            <Button name={buttonData[2].name} />
-        </MessageSenderWrapper>
+            <Button name={buttonData[1].name} onClick={addPostHandler}/>
+        </TextareaWrapper>
     );
 };
 
-const MessageSenderWrapper = styled.div`
+
+const TextareaWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;

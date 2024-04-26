@@ -1,17 +1,16 @@
-// @flow 
 import * as React from 'react';
 import { styled } from 'styled-components';
 
 // TYPES:
 type ButtonPropsType = {
     name: string
-    // onClick: () => void
+    onClick?: () => void
 };
 
 // UI:
-export const Button = ({name}: ButtonPropsType) => {
+export const Button = ({name, onClick}: ButtonPropsType) => {
     return (
-        <StyledButton>{name}</StyledButton>
+        <StyledButton onClick={onClick}>{name}</StyledButton>
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { postDataType } from '..';
+import { postDataType } from '../state/state';
 
 //TYPES:
 type PostTabsPropsType = {
